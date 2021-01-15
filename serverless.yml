@@ -1,0 +1,23 @@
+service: serverless-example-1
+
+plugins:
+  -serverless-webpack
+  -serverless-offline
+  -serverless-prune-plugin
+  -serverless-offline-ssm
+  -serverless-dotenv-plugin
+  -serverless-asssociate-waf
+  -serverless-manager
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  weather:
+    handler: handler.weather
+     - httpApi:
+         path: /
+         method: get
+
