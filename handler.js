@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports.weather = async (event,context,callback) => {
+  let zipcode = " "
+  console.log(event);
   const response = {
     statusCode: 200,
     body: JSON.stringify(

@@ -1,14 +1,8 @@
 service: serverless-example-1
 
+# the - lets yaml know its an array/list
 plugins:
-  -serverless-webpack
-  -serverless-offline
-  -serverless-prune-plugin
-  -serverless-offline-ssm
-  -serverless-dotenv-plugin
-  -serverless-asssociate-waf
-  -serverless-manager
-
+  - serverless-offline
 
 provider:
   name: aws
@@ -17,7 +11,8 @@ provider:
 functions:
   weather:
     handler: handler.weather
+    events: 
      - httpApi:
          path: /
-         method: get
+         method: post
 
